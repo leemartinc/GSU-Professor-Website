@@ -1,0 +1,30 @@
+.menubar{
+    text-align: center;
+    background-color: mediumblue;
+    clear: right;
+    padding: 10px;
+}
+.logo{
+    float: left;
+    height: 150px; 
+    width: 150px;
+    margin-left: 30px;
+}
+.menutext{
+    color: white;
+    text-decoration: none;
+    padding: 10px;
+}
+.menutext:hover{
+    color: mediumblue;
+    background-color: white;
+}
+.rightsearch{
+    float: right;
+    margin-bottom: 15px;
+    margin-top: 15px;
+}
+.raoface{
+    clear: both;
+    margin-left: 200px;
+}
