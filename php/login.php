@@ -41,6 +41,11 @@ if($usererror == '0'){
          
          //redirect to NEW PAGE AND GRANTED ACCESS TO FEATURES
          echo "<script type='text/javascript'>alert('connected to GSU snowball server and ready to connect to database');</script>";
+         
+         header('Location: home.html');
+         
+         
+         
      }
     else{
         //ERROR MESSAGE TO BROWSER ABOUT CONNECTION
