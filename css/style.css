@@ -3,14 +3,14 @@
 /* CSS Document */
 
 .fullscreen-login-bg {
-    position: absolute;
+    position: fixed;
     top: 0;
     right: 0;
     bottom: 0;
     left: 0;
     z-index: -1;
     background-image: url(/images/login-bg.jpg);
-    background-size: cover;
+    
     
   /*  
     -moz-filter: blur(5px);
@@ -23,25 +23,23 @@
 
 .login {
     width: 450px;
-  position: absolute;
-  top: 48%;
-  left: 76%;
-    z-index: 100;
+    position: relative;
+    top: 48%;
+    left: 76%;
+    z-index: 3;
     margin: -340px 0px 0px -155px;
-  background: rgba(225,225,225,.9);
-  padding: 20px 30px;
-  border-radius: 15px;
-  box-shadow: 0px 1px 0px rgba(225,225,225,0.3),inset 0px 1px 0px rgba(255,255,255,0.07)
+    background: rgba(225,225,225,.9);
+    padding: 20px 30px;
+    border-radius: 15px;
+    box-shadow: 0px 1px 0px rgba(225,225,225,0.3),inset 0px 1px 0px rgba(255,255,255,0.07)
 }
 
 .logo{
-    top: 15%;
+    top: 17%;
     bottom: auto;
     right: auto;
     left: 14%;
-    position: absolute;
-    padding: 20px 30px;
-    margin: -340px 0px 0px -155px;
+    position: relative;
     z-index: 3;
     
 }
