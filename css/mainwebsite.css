@@ -39,7 +39,8 @@ h1{
 }
 .raoface{
     float: left;
-    margin-left: 200px;
+    margin: auto;
+    width: 25%;
 }
 
 .logout{
@@ -56,11 +57,9 @@ h2{
 
 .news{
     border: black 1px solid;
-    float: right;
     height: 500px;
-    width: 600px;
-    margin-right: 250px;
-    
+    width: 50%;
+    margin: auto;
 }
 
 .newssection{
