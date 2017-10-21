@@ -1,6 +1,6 @@
 <?php
 
-if(isset($_POST['login'])) {
+if(isset($_POST['continue'])) {
     
     session_start();
     
@@ -12,8 +12,14 @@ if(empty($_POST['campusid']) ||
     $usererror='1';
 }
 
-$campus_id=$_POST['campusid']; 
-$password=$_POST['password']; 
+    $campus_id=$_POST['campusid']; 
+    $password=$_POST['password']; 
+    $name=$_POST['name'];
+    $email=$_POST['email'];
+    $class=$_POST['class'];
+    
+    $filepath = "/home/ubuntu/gsu/" . $class . "/" . $campus_id;
+    $filepathclass = "/home/ubuntu/gsu/" . $class;
 
 if($usererror == '0'){
     // SSH Host 
@@ -35,25 +41,6 @@ if($usererror == '0'){
     $db_name = "zodiac";
     $db_username = "root";
     $db_password = "password";
-    
-    
-    //DATABASE STUFF
-     $db_check = $_POST['campusid'];
-    
-    
-    function searchDB($search){
-        
-        $query = "SELECT * FROM `allusers` WHERE `campusid`='$search'";
-        $result = mysql_query($query) or die (mysql_error());
-        if($result) {    
-            return true;
-        }
-   else
-     { 
-       return false;  
-     }
-        
-    }
   
     
     //CHECK IF CONNECTION SUCCESSFULL
@@ -77,41 +64,45 @@ if($usererror == '0'){
                 echo "<script type='text/javascript'>alert('NOT connected to zodiac');</script>";
                 } 
          else{
-             
-             
-$result = $conn->query("SELECT * FROM allusers WHERE campusid = '$campus_id'");
-if ($result->num_rows == 0)
-    {
-        header ( 'Location: firstLogin.html' );
-    }
-else
-    {
-        header( 'Location: home.html' );
-    }
 
              
-            //echo "<script type='text/javascript'>alert('connected to zodiac');</script>";
-            //if first time logining in
-            //create user in database
+    //add to DB
+             $sql = "INSERT INTO `allusers` (`admin`, `instructor`, `campusid` , `name` , `email`, `period` , `filelocation` , `chat` , `insession` , `datevetted`) VALUES ('0' , '0', '$campus_id', '$name', '$email', '$class', '$filepath','NULL', '0' , CURRENT_TIMESTAMP);";
              
-//            if (searchDB($campusid)){
-                 //header('Location: home.html');
-//            }
-//             else{
-//                 //show modal
+if(mysqli_query($conn, $sql)){
+    
+    
+    if(is_dir($filepathclass)){
+         mkdir($filepath);
+    }
+    else{
+        mkdir($filepathclass, 0777, true);
+        mkdir($filepath, 0777, true);
+    }
+        
+    
+    header('Location: home.html');
+    
+    
+} else{
+    echo "ERROR: Could not able to execute $sql. " . mysqli_error($conn);
+}                        
+             ///////////////////////////  
+             //make upload folder for student
+            
+            
              
-             //temp display message
-                
-                 
-//             }
+             //start the session and login
+           //  $_SESSION['valid'] = true;
+//                $_SESSION['timeout'] = time();
+          //  $_SESSION['username'] = $campus_id;
              
+            // header('Location: home.html');
              
+             //conditional to check if it was added -- if yes, go home
              
          }
 
-         //redirect to NEW PAGE AND GRANTED ACCESS TO FEATURES-move inside db conditional
-        
-         //header('Location: home.html');  
      }
     else{
         //ERROR MESSAGE TO BROWSER ABOUT CONNECTION
@@ -120,7 +111,7 @@ else
 }
  
 else{
-    //ERROR MESSAGE TO BROWSER ABOUT CREDENTIALS
+    //ERROR MESSAGE TO BROWSER ABOUT CREDENTIALS -- USER ERROR
     echo "<script type='text/javascript'>alert('wrong credentials');</script>";}
 }
 
