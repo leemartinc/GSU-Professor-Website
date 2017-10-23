@@ -1,8 +1,8 @@
 <?php
+session_start();
 
 if(isset($_POST['login'])) {
     
-    session_start();
     
 $usererror='0';
 $connectionerror='0';
@@ -86,7 +86,20 @@ if ($result->num_rows == 0)
     }
 else
     {
-        header( 'Location: home.html' );
+    
+    //set the $_SESSION['signed_in'] variable to TRUE
+                    $_SESSION['signed_in'] = true;
+                     
+                    //we also put the user_id and user_name values in the $_SESSION, so we can use it at various pages
+                    while($row = mysqli_fetch_assoc($result))
+                    {
+                        $_SESSION['campusid']    = $row['campusid'];
+                        $_SESSION['user_name']  = $row['name'];
+                        $_SESSION['user_level'] = $row['user_level'];
+                    }
+    
+    
+        header( 'Location: home.php' );
     }
 
              

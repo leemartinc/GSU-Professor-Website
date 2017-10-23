@@ -67,7 +67,7 @@ if($usererror == '0'){
 
              
     //add to DB
-             $sql = "INSERT INTO `allusers` (`admin`, `instructor`, `campusid` , `name` , `email`, `period` , `filelocation` , `chat` , `insession` , `datevetted`) VALUES ('0' , '0', '$campus_id', '$name', '$email', '$class', '$filepath','NULL', '0' , CURRENT_TIMESTAMP);";
+             $sql = "INSERT INTO `allusers` (`user_level`, `campusid` , `name` , `email`, `period` , `filelocation` , `chat` , `insession` , `datevetted`) VALUES ('0', '$campus_id', '$name', '$email', '$class', '$filepath','NULL', '0' , CURRENT_TIMESTAMP);";
              
 if(mysqli_query($conn, $sql)){
     
@@ -79,9 +79,18 @@ if(mysqli_query($conn, $sql)){
         mkdir($filepathclass, 0777, true);
         mkdir($filepath, 0777, true);
     }
-        
+        //set the $_SESSION['signed_in'] variable to TRUE
+                    $_SESSION['signed_in'] = true;
+                     
+                    //we also put the user_id and user_name values in the $_SESSION, so we can use it at various pages
+                    while($row = mysqli_fetch_assoc($result))
+                    {
+                        $_SESSION['campusid']    = $row['campusid'];
+                        $_SESSION['user_name']  = $row['name'];
+                        $_SESSION['user_level'] = $row['user_level'];
+                    }
     
-    header('Location: home.html');
+    header('Location: home.php');
     
     
 } else{
