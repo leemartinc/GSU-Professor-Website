@@ -48,6 +48,17 @@
     box-shadow: 0px 1px 0px rgba(225,225,225,0.3),inset 0px 1px 0px rgba(255,255,255,0.07)
 }
 
+
+.login3 {
+    width: 450px;
+    z-index: 6;
+    margin: -340px 0px 0px -155px;
+    background: rgba(225,225,225,.9);
+    padding: 20px 30px;
+    border-radius: 15px;
+    box-shadow: 0px 1px 0px rgba(225,225,225,0.3),inset 0px 1px 0px rgba(255,255,255,0.07)
+}
+
 .logo{
     top: 17%;
     bottom: auto;
@@ -209,7 +220,7 @@ h9{
 	transition:all 0.3s ease-in-out;
 	-moz-transition:all 0.3s ease-in-out;
 	-webkit-transition:all 0.3s ease-in-out;
-    box-shadow: 4px 4px 0px rgba(0,0,0,.3),inset 0px 0px 0px rgba(255,255,255,0.07);
+    box-shadow: 4px 4px 8px rgba(0,0,0,.3),inset 0px 0px 0px rgba(255,255,255,0.07);
 }
 .button:hover {
 	text-decoration:none;
@@ -244,7 +255,7 @@ h9{
 	transition:all 0.3s ease-in-out;
 	-moz-transition:all 0.3s ease-in-out;
 	-webkit-transition:all 0.3s ease-in-out;
-    box-shadow: 4px 4px 0px rgba(0,0,0,.3),inset 0px 0px 0px rgba(255,255,255,0.07);
+    box-shadow: 4px 4px 8px rgba(0,0,0,.3),inset 0px 0px 0px rgba(255,255,255,0.07);
 }
 .button2:hover {
 	text-decoration:none;
@@ -299,47 +310,7 @@ h9{
 
 /* Navigation
 ---------------------------------*/
-.main-nav-outer{
-	padding:0px;
-	border-bottom:1px solid #000000;
-	box-shadow:0 4px 5px -3px #000000;
-	position:relative;
-	background:#333;
-}
-.main-nav{
-	text-align:center;
-	margin:10px 0 0px;
-	padding:0;
-	list-style:none;
-    background: #333;
-    color: #333;
-}
 
-.main-nav js{
-	display:inline-block;
-	color:#fff;
-    background: #333;
-	text-transform:uppercase;
-	font-family: 'Montserrat', sans-serif;
-	text-decoration: #000000;
-    text-decoration-color: #000000;
-    border-radius:15px;
-	line-height:20px;
-	margin:17px 15px;
-	transition:all 0.3s ease-in-out;
-	-moz-transition:all 0.3s ease-in-out;
-	-webkit-transition:all 0.3s ease-in-out;
-}
-
-.main-nav js:hover{ 
-	text-decoration:none;
-	color: #000000;
-}
-
-
-.main-section{
-	padding:90px 0 110px;
-}
 
 
 
@@ -371,100 +342,9 @@ h9{
 
 /* random
 ---------------------------------*/
-.business-talking{
-	background:url(../img/section-bg2.jpg) top center no-repeat;
-	background-size:cover;
-	padding:50px 0 10px;
-	text-align:center;
-}
-.business-talking h2{
-	font-family: 'Montserrat', sans-serif;
-	font-weight:700;
-	padding:0;
-	margin:20px 0 70px;
-	text-transform:uppercase;
-	font-size:42px;
-	color:#fff;
-}
 
 
-/* Contact
----------------------------------*/
-.main-section.contact{
-	padding:9px 0 100px;
-}
 
-.main-section.contact{
-	background:url(../img/bg-map.png) left 190px no-repeat;
-}
-.contact-info-box{
-	font-size:15px;
-	margin:0 0 14px 68px;
-	padding-left:0;
-}
-.contact-info-box h3{
-	font-size: 15px;
-	font-weight:400;
-	float:left;
-	width:102px;
-	margin-right:12px;
-	line-height:28px;
-}
-.contact-info-box h3 i{
-	font-style:normal;
-	font-size:18px;
-	color:#222222;
-	font-family: 'FontAwesome';
-	font-weight:normal;
-	margin-right:7px;
-}
-.contact-info-box span{
-	line-height:28px;
-	display:block;
-	overflow:hidden;
-}
-.social-link{
-	padding:35px 0;
-	margin:0 0 0 68px;
-	display:block;
-	overflow:hidden;
-	list-style:none;
-}
-.social-link li{
-	float:right;
-	margin-right:8px;
-   
-}
-.social-link li a{
-	display:block;
-	width:50px;
-	height:50px;
-	text-align:center;
-	line-height:50px;
-	font-size:25px;
-	color:#fff;
-	background:#222222;
-	border-radius:50%;
-	transition:all 0.3s ease-in-out;
-}
-.social-link li a:hover, .social-link li a:focus{
-	text-decoration:none;
-}
-.twitter a:hover {
-	background: #55acee;
-}
-.facebook a:hover {
-	background: #7fff00;
-}
-.pinterest a:hover {
-	background: #cb2026;
-}
-.gplus a:hover {
-	background: #dd4b39;
-}
-.dribbble a:hover {
-	background: #008B8B;
-}
 
 .form{
 	margin:0 66px 0 3px;
@@ -493,7 +373,7 @@ h9{
 	outline:0;
 	-webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(124, 197, 118, 0.3);
 	-moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(124, 197, 118, 0.3);	
-	box-shadow: 10px 10px 0px rgba(0,0,0,.3),inset 20px 20px 0px rgba(255,255,255,0.07);
+	box-shadow: 10px 10px 8px rgba(0,0,0,.3),inset 20px 20px 0px rgba(255,255,255,0.07);
 }
 
 
@@ -515,7 +395,7 @@ h9{
 	-moz-transition:all 0.3s ease-in-out;
 	-webkit-transition:all 0.3s ease-in-out;
     background: #fff;
-    box-shadow: 10px 10px 0px rgba(0,0,0,.2),inset 20px 20px 0px rgba(250,255,255,0.07);
+    box-shadow: 10px 10px 8px rgba(0,0,0,.2),inset 20px 20px 0px rgba(250,255,255,0.07);
     
         
         
@@ -526,16 +406,8 @@ h9{
 	outline:0;
 	-webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(124, 197, 118, 0.3);
 	-moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(124, 197, 118, 0.3);	
-	box-shadow: 10px 10px 0px rgba(0,0,0,.3),inset 20px 20px 0px rgba(255,255,255,0.07);
+	box-shadow: 10px 10px 8px rgba(0,0,0,.3),inset 20px 20px 0px rgba(255,255,255,0.07);
 }
-
-
-
-
-
-
-
-
 
 
 .input-text.text-area{
@@ -586,7 +458,7 @@ h9{
 	-moz-transition:all 0.3s ease-in-out;
 	-webkit-transition:all 0.3s ease-in-out;
     background: #fff;
-    box-shadow: 10px 10px 0px rgba(0,0,0,.2),inset 20px 20px 0px rgba(250,255,255,0.07);
+    box-shadow: 10px 10px 8px rgba(0,0,0,.2),inset 20px 20px 0px rgba(250,255,255,0.07);
 }
 /* Footer
 ---------------------------------*/

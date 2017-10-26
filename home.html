@@ -8,11 +8,17 @@ and open the template in the editor.
     <head>
         <title>Class Website</title>
         <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="viewport" content="width=device-width, maximum-scale=1">
         <link rel="stylesheet" type="text/css" href="css/mainwebsite.css">
+        <style type="text/css">
+
+      html,body { height: 100%; margin: 0px; padding: 0px; }
+      #full { background: #0f0; height: 100%;}
+
+    </style>
     </head>
-    <body>
-        <div>
+    
+    <div>
             <a class="logout" href="#">Logout</a>
             <input class="rightsearch">
         </div>
@@ -24,6 +30,11 @@ and open the template in the editor.
             <a class="menutext" href="#Classes">Calender</a>
             <a class="menutext" href="#Classes">Dropbox</a>
         </div>
+    
+    <body>
+       
+        <div class="container">
+        
         <h1>Computer Science</h1>
         <div class="raoface">
             <img src="https://grid.cs.gsu.edu/~ncasturi1/125.JPG" alt="Rao Face"/>
@@ -44,28 +55,14 @@ and open the template in the editor.
                 <p>We gotta get this done $$</p>
             </div> 
         </div>
+       </div> 
         
-        <script type="text/javascript" src="js/main.js"></script>    
-      <script type="text/javascript">
-$(document).ready(function() {
-    $("body").css("display", "none");
- 
-    $("body").fadeIn(2000);
- 
-    $("a.transition").click(function(event){
-        event.preventDefault();
-        linkLocation = this.href;
-        $("body").fadeOut(1000, redirectPage);      
-    });
-         
-    function redirectPage() {
-        window.location = linkLocation;
-    }
-});
-</script>
-
-        
+           
     </body>
+    
+    
+    <div class="footerbar">
+        </div>
 </html>
 
 

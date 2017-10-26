@@ -1,8 +1,10 @@
 <?php
-//include 'connect.php';
+include 'connect.php';
 include 'header.php';
 
-echo '
+?>
+
+
 <h1>Computer Science</h1>
         <div class="raoface">
             <img src="https://grid.cs.gsu.edu/~ncasturi1/125.JPG" alt="Rao Face"/>
@@ -23,7 +25,8 @@ echo '
                 <p>We gotta get this done $$</p>
             </div> 
         </div>
-';
+
+<?php
 
 include 'footer.php';
 

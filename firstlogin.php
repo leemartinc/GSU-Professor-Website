@@ -1,8 +1,9 @@
 <?php
+session_start();
 
 if(isset($_POST['continue'])) {
     
-    session_start();
+    
     
 $usererror='0';
 $connectionerror='0';
@@ -85,7 +86,7 @@ if(mysqli_query($conn, $sql)){
                     //we also put the user_id and user_name values in the $_SESSION, so we can use it at various pages
                     while($row = mysqli_fetch_assoc($result))
                     {
-                        $_SESSION['campusid']    = $row['campusid'];
+                        $_SESSION['user_id']    = $row['userid'];
                         $_SESSION['user_name']  = $row['name'];
                         $_SESSION['user_level'] = $row['user_level'];
                     }

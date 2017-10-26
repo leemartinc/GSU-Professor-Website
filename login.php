@@ -41,19 +41,6 @@ if($usererror == '0'){
      $db_check = $_POST['campusid'];
     
     
-    function searchDB($search){
-        
-        $query = "SELECT * FROM `allusers` WHERE `campusid`='$search'";
-        $result = mysql_query($query) or die (mysql_error());
-        if($result) {    
-            return true;
-        }
-   else
-     { 
-       return false;  
-     }
-        
-    }
   
     
     //CHECK IF CONNECTION SUCCESSFULL
@@ -93,7 +80,7 @@ else
                     //we also put the user_id and user_name values in the $_SESSION, so we can use it at various pages
                     while($row = mysqli_fetch_assoc($result))
                     {
-                        $_SESSION['campusid']    = $row['campusid'];
+                        $_SESSION['user_id']    = $row['userid'];
                         $_SESSION['user_name']  = $row['name'];
                         $_SESSION['user_level'] = $row['user_level'];
                     }

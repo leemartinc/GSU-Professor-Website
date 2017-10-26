@@ -1,16 +1,57 @@
 <?php
-//create_cat.php
-//include 'connect.php';
+include 'connect.php';
 include 'header.php';
-         
-echo '<tr>';
-    echo '<td class="leftpart">';
-        echo '<h3><a href="category.php?id=">Category name</a></h3> Category description goes here';
-    echo '</td>';
-    echo '<td class="rightpart">';                
-            echo '<a href="topic.php?id=">Topic subject</a> at 10-10';
-    echo '</td>';
-echo '</tr>';
+
+
+if($_SERVER['REQUEST_METHOD'] != 'POST') {
+    
+     //the form hasn't been posted yet, display it
+    echo "<form method='post' action=''>
+        Category name: <input type='text' name='cat_name' />
+        Category description: <textarea name='cat_description' /></textarea>
+        <input type='submit' value='Add category' />
+     </form>";
+    
+    
+}
+    else{
+        
+$usererror='0';
+
+
+if(empty($_POST['cat_name']) || 
+   empty($_POST['cat_description'])){
+    $usererror='1';
+}
+
+    $name=$_POST['cat_name']; 
+    $description=$_POST['cat_description']; 
+    
+    
+if($usererror == '0'){
+     
+    //add to DB
+             $sql = "INSERT INTO `categories` (`cat_name`, `cat_description`) VALUES ('$name', '$description');";
+             
+    if(mysqli_query($conn, $sql)){
+    
+        echo 'New category successfully added.';
+        header ( 'Location: forum.php' );
+    
+    } else{ 
+    
+    }                        
+     
+}
+
+ 
+else{
+    //ERROR MESSAGE TO BROWSER ABOUT CREDENTIALS -- USER ERROR
+    echo "<script type='text/javascript'>alert('wrong credentials');</script>";}
+}
+
+
+
 
 include 'footer.php';
 ?>

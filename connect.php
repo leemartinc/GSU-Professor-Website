@@ -5,15 +5,12 @@ $server = 'localhost';
 $username   = 'root';
 $password   = 'password';
 $database   = 'zodiac';
+
+$conn = new mysqli($server, $username, $password, $database);
  
-if(!mysql_connect($server, $username,  $password))
+if($conn->connect_error)
 {
     exit('Error: could not establish database connection');
 }
-if(!mysql_select_db($database)
-{
-    exit('Error: could not select the database');
-}
-
 
 ?>
