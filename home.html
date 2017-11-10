@@ -11,6 +11,8 @@ and open the template in the editor.
         <meta name="viewport" content="width=device-width, maximum-scale=1">
         <link rel="stylesheet" type="text/css" href="css/mainwebsite.css">
         <style type="text/css">
+        <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>    
 
       html,body { height: 100%; margin: 0px; padding: 0px; }
       #full { background: #0f0; height: 100%;}
@@ -46,17 +48,49 @@ and open the template in the editor.
         </div>
         <div class="news">
             <h2>News Announcement</h2>
-            <div class="newssection">
-                <h3 class="newsheader">IMPORTANT NEWS</h3>
-                <p>This is our news section</p>
+            <div>
+                <p class="news_output" id="news_output"></p>
             </div>
-            <div class="newssection">
-                <h4 class="newsheader">PROJECT DUE</h4>
-                <p>We gotta get this done $$</p>
-            </div> 
+            <div class="news_input">
+                Title:<input id="news_title_input"><br>
+                Announcement:<br><input id="news_annoucement_input" style="width: 250px; height: 50px;"><br>
+                <button onclick="submit_news()">Submit</button>
+                <input type="button" class="cancel" value="Cancel">
+            </div>
+            <input type="button" class="input_news" value="Input News">
         </div>
        </div> 
-        
+       <script>
+                function submit_news(){
+                    var title = [];
+                    var annoucement = [];
+                    var i = 0;
+                    var d = new Date();
+                    title[i] = document.getElementById("news_title_input").value;
+                    annoucement[i] = document.getElementById("news_annoucement_input").value;
+                    document.getElementById("news_output").innerHTML += '<p class="newsheader">'+title[i]+' '+d.toLocaleDateString()+'</p><br><p class="newssection">'+annoucement[i]+'</p>';
+                    i++;
+                    document.getElementById("news_title_input").value = "";
+                    document.getElementById("news_annoucement_input").value = "";
+                }
+                $(document).ready(function(){
+                    var user = 1;
+                    $(".news_input").hide();
+                    $(".input_news").click(function(){
+                        if (user == 1){
+                            $(".news_input").show();
+                        }
+                        if (user == 0){
+                            alert("Don't have access for this functionality!")
+                        }
+                    });
+                    $(".cancel").click(function(){
+                        $(".news_input").hide();
+                        document.getElementById("news_title_input").value = "";
+                        document.getElementById("news_annoucement_input").value = "";
+                    });                            
+                });
+            </script> 
            
     </body>
     
