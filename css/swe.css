@@ -28,51 +28,6 @@ body{
  
 }
 
-.select{
-
-	border:1px solid #333;
-	width:375px;
-	height: 60px;
-	border-radius:10px;
-	font-size:15px;
-    border-color: aliceblue;
-	color: #aaa;
-	font-family: 'Open Sans', sans-serif;
-	margin:0 0 30px 0;
-	transition:all 0.3s ease-in-out;
-	-moz-transition:all 0.3s ease-in-out;
-	-webkit-transition:all 0.3s ease-in-out;
-    background: #fff;
-    box-shadow: 10px 10px 8px rgba(0,0,0,.2),inset 20px 20px 0px rgba(250,255,255,0.07);
-}
-
-.option2{
-    
-    white-space:pre-wrap;
-    border-bottom: 1px solid darkgray;
-    
-    
-}
-
-.select2{
-
-	border:1px solid #333;
-	width:100%;
-	height:auto;
-	border-radius:10px;
-    overflow: hidden;
-    white-space:pre-wrap;
-	font-size:15px;
-	color: black;
-	font-family: 'Open Sans', sans-serif;
-	margin:0 0 30px 0;
-	transition:all 0.3s ease-in-out;
-	-moz-transition:all 0.3s ease-in-out;
-	-webkit-transition:all 0.3s ease-in-out;
-    background: #fff;
-    box-shadow: 10px 10px 8px rgba(0,0,0,.2),inset 20px 20px 0px rgba(250,255,255,0.07);
-}
-
 /* Dropdown Button */
 .dropbtn {
     background-color: #4CAF50;
@@ -191,6 +146,7 @@ h1{
 
 h2{
     border: black 1px solid;
+    background-color: #0038A5;
     color: white;
     text-align: center;
     margin: auto;
@@ -274,7 +230,7 @@ h2{
 
 /* begin table styles */
 .table-title h2 {
-   color: black;
+   color: #fafafa;
    font-size: 30px;
    font-weight: 400;
    font-style:normal;
@@ -287,11 +243,9 @@ table {
     background: white;
   border-radius:3px;
   border-collapse: collapse;
-  height: 320px;
+  height: 32px;
   margin: auto;
-  max-width: 100%;
   padding:5px;
-  width: 100%;
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
   animation: float 5s infinite;
 }
@@ -324,14 +278,14 @@ td {
   text-align:left;
   vertical-align:middle;
   font-weight:300;
-  font-size:18px;
+  font-size:14px;
+    height: 30px;
   text-shadow: -1px -1px 1px rgba(0, 0, 0, 0.1);
   border-right: 1px solid #C1C3D1;
 }
 
 td:last-child {
   border-right: 0px;
-	width: 80%;
 }
 
 td2 {
@@ -358,9 +312,10 @@ tr {
   font-size:16px;
   font-weight:normal;
   text-shadow: 0 1px 1px rgba(256, 256, 256, 0.1);
+    line-height: 30px;
 }
  
-trhover td {
+tr:hover td {
   background:#4E5066;
   color:#FFFFFF;
   border-top: 1px solid #22262e;
@@ -522,10 +477,9 @@ height: 230px;
     color: #fff;
     cursor: pointer;
     font: inherit;
-    font-size: 13px;
-    margin: 5px;
+    margin 0;
     outline: 0;
-    padding: 4px 8px;
+    padding: 12px 20px;
     transition: all .1s linear;
     
 }
@@ -549,8 +503,3 @@ height: 230px;
     transform: translateY(3px);
 	/*color:#222222 !important;*/
 }
-
-div.wrapper { float:left;}
-div.wrapper label { float: left; width: 75%; text-align: right; }
-div.wrapper span { float: right; width: 20%; text-align: left; }
-div.clearboth { clear: both }

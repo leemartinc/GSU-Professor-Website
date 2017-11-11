@@ -69,7 +69,7 @@ if($usererror == '0'){
 $result = $conn->query("SELECT * FROM allusers WHERE campusid = '$campus_id'");
 if ($result->num_rows == 0)
     {
-        header ( 'Location: firstLogin.html' );
+        header ( 'Location: firstlogin.html' );
     }
 else
     {

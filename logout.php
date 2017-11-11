@@ -1,7 +1,10 @@
 <?php
-   session_start();
-   unset($_SESSION["user_name"]);
+    session_start();
+    session_unset();
+    session_destroy();
    
    echo 'You have cleaned session';
-   header('Refresh: 2; URL = index.html');
+   header('Refresh: 2; URL = /index.html');
+
+exit();
 ?>

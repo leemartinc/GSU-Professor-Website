@@ -80,6 +80,8 @@ if(mysqli_query($conn, $sql)){
         mkdir($filepathclass, 0777, true);
         mkdir($filepath, 0777, true);
     }
+    
+    $result = $conn->query("SELECT * FROM allusers WHERE campusid = '$campus_id'");
         //set the $_SESSION['signed_in'] variable to TRUE
                     $_SESSION['signed_in'] = true;
                      

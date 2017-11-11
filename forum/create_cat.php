@@ -1,6 +1,6 @@
 <?php
-include 'connect.php';
-include 'header.php';
+include $_SERVER['DOCUMENT_ROOT'] . '/connect.php';
+include $_SERVER['DOCUMENT_ROOT'] . '/header.php';
 
 
 if($_SERVER['REQUEST_METHOD'] != 'POST') {
@@ -36,7 +36,7 @@ if($usererror == '0'){
     if(mysqli_query($conn, $sql)){
     
         echo 'New category successfully added.';
-        header ( 'Location: forum.php' );
+        header ( 'Location: /forum/forum.php' );
     
     } else{ 
     
@@ -53,5 +53,5 @@ else{
 
 
 
-include 'footer.php';
+include $_SERVER['DOCUMENT_ROOT'] . '/footer.php';
 ?>

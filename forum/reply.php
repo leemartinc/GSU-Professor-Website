@@ -1,7 +1,7 @@
 <?php
 //create_cat.php
-include 'connect.php';
-include 'header.php';
+include $_SERVER['DOCUMENT_ROOT'] . '/connect.php';
+include $_SERVER['DOCUMENT_ROOT'] . '/header.php';
  
 if($_SERVER['REQUEST_METHOD'] != 'POST')
 {
@@ -28,10 +28,10 @@ else
         }
         else
         {
-            echo 'Your reply has been saved, check out <a href="topic.php?id=' . htmlentities($_GET['id']) . '">the topic</a>.';
+            echo 'Your reply has been saved, check out <a href="/forum/posts.php?id=' . htmlentities($_GET['id']) . '">the topic</a>.';
         }
     }
 }
  
-include 'footer.php';
+include $_SERVER['DOCUMENT_ROOT'] . '/footer.php';
 ?>

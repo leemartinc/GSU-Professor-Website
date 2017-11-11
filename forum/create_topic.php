@@ -1,7 +1,7 @@
 <?php
 //create_cat.php
-include 'connect.php';
-include 'header.php';
+include $_SERVER['DOCUMENT_ROOT'] . '/connect.php';
+include $_SERVER['DOCUMENT_ROOT'] . '/header.php';
  
 echo '<h2>Create a topic</h2>';
 if($_SESSION['signed_in'] == false)
@@ -112,12 +112,12 @@ else
                     $result = mysqli_query($conn, $sql);
                      
                     //after a lot of work, the query succeeded!
-                    echo 'You have successfully created <a href="topic.php?id='. $topicid . '">your new topic</a>.';
+                    echo 'You have successfully created <a href="/forum/posts.php?id='. $topicid . '">your new topic</a>.';
                 }
             }
         }
     }
 }
- 
-include 'footer.php';
+
+include $_SERVER['DOCUMENT_ROOT'] . '/footer.php';
 ?>

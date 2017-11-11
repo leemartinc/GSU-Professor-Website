@@ -25,11 +25,20 @@ and open the template in the editor.
         <img class="logo" src="http://www.gsu.edu/wp-content/themes/gsu-flex-2/images/logo.png" alt="GSULOGO">
         <div class="menubar">
             <a class="menutext" href="home.html">Home</a>
+            
+                <div class="dropdown">
             <a class="menutext" href="#Classes">Classes</a>
+                    <div class="dropdown-content">
+                        <a href="#">Software Engineering 4350</a>
+                        <a href="#">Software Engineering 6350</a>
+                    </div>
+                </div>
+            
             <a class="menutext" href="#Discussion Board">Discussion Board</a>
             <a class="menutext" href="#Classes">Calender</a>
             <a class="menutext" href="#Classes">Dropbox</a>
         </div>
+    
     
     <body>
        
@@ -56,6 +65,26 @@ and open the template in the editor.
             </div> 
         </div>
        </div> 
+        
+        
+        <!-------PHP
+
+if($_SESSION['user_level'] == 1)
+                {
+                    echo 'You can create.';
+                }
+                else
+                {
+                    echo 'Before you can post a topic, you must wait for an admin to create some categories.';
+                }
+            }
+
+
+----->
+        
+        
+        
+        
         
            
     </body>

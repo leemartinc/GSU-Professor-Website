@@ -1,13 +1,13 @@
 <?php
 //forum.php
-include 'connect.php';
-include 'header.php';
+include $_SERVER['DOCUMENT_ROOT'] . '/connect.php';
+include $_SERVER['DOCUMENT_ROOT'] . '/header.php';
 
     
 
 
-echo '<a href="create_cat.php">Create Category</a></br>';
-echo '<a href="create_topic.php">Create Topic</a>';
+echo '<a href="/forum/create_cat.php">Create Category</a></br>';
+echo '<a href="/forum/create_topic.php">Create Topic</a>';
  
 $sql = "SELECT cat_id, cat_name, cat_description FROM categories";
  
@@ -24,7 +24,7 @@ if($result)
     else
     {
         //prepare the table
-        echo '<table border="1">
+        echo '<table class="table-fill">
               <tr>
                 <th>Category</th>
                 <th>Last topic</th>
@@ -34,13 +34,15 @@ if($result)
         {               
             echo '<tr>';
                 echo '<td class="leftpart">';
-                    echo '<h3><a href="category.php?id= '. $row['cat_id'] .' ">' . $row['cat_name'] . '</a></h3>' . $row['cat_description'];
+                    echo '<h3><a href="/forum/topics.php?id= '. $row['cat_id'] .' ">' . $row['cat_name'] . '</a></h3>' . $row['cat_description'];
                 echo '</td>';
                 echo '<td class="rightpart">';
-                            echo '<a href="topic.php?id=  ' . $row['topic_id'] . ' ">Topic subject</a> at 10-10';
+                            echo '<a href="/forum/posts.php?id=  ' . $row['topic_id'] . ' ">Topic subject</a> at 10-10';
                 echo '</td>';
             echo '</tr>';
         }
+        echo '</table>';
+                   
     }
 }
    
@@ -50,5 +52,5 @@ else
 }
 
  
-include 'footer.php';
+include $_SERVER['DOCUMENT_ROOT'] . '/footer.php';
 ?>
