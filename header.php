@@ -23,11 +23,13 @@ session_start();
     
     <div>
         
-        
+<!------------------------------------------------------SEARCH--------------------------------------------->        
+        <div class="rightsearch">
         <form>
-        <input type="text" size="30" onkeyup="showResult(this.value)" class="rightsearch">
-            <div id="livesearch"></div>
+        <input type="text" size="30" onkeyup="showResult(this.value)">
+            <div id="livesearch" style="position: absolute; z-index: 999; width: auto; background-color:white;"></div>
         </form>
+        </div>
             
         <script>showResult(this.value)
 function showResult(str) {
@@ -48,10 +50,14 @@ function showResult(str) {
       document.getElementById("livesearch").style.border="1px solid #A5ACB2";
     }
   }
-  xmlhttp.open("GET","livesearch.php?q="+str,true);
+  xmlhttp.open("GET","/livesearch.php?q="+str,true);
   xmlhttp.send();
 }
 </script>
+        
+<!---------------------------------------------------------------------------------------------------------->       
+        
+        
         
             <?php
             if($_SESSION['signed_in'])
@@ -67,7 +73,7 @@ function showResult(str) {
         </div>
         <div >
         <img class="logo" src="http://www.gsu.edu/wp-content/themes/gsu-flex-2/images/logo.png" alt="GSULOGO">
-        <div class="menubar">
+        <div class="menubar" style="">
             <a class="menutext" href="/home.php">Home</a>
             
                 <div class="dropdown">

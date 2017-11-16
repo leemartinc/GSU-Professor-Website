@@ -1,30 +1,20 @@
 <pages>
+    
 <link>
-<title>HTML a tag</title>
-<url>https://www.w3schools.com/tags/tag_a.asp</url>
-</link>
-<link>
-<title>HTML br tag</title>
-<url>https://www.w3schools.com/tags/tag_br.asp</url>
-</link>
-<link>
-<title>CSS background Property</title>
+<title>Class Expectation and Introduction - Lecture 1</title>
+<meta>swag little</meta>
 <url>
-https://www.w3schools.com/cssref/css3_pr_background.asp
+https://grid.cs.gsu.edu/~ncasturi1/SWEFall2017/Software%20Engineering%20Class%201.pdf
 </url>
 </link>
+    
 <link>
-<title>CSS border Property</title>
-<url>https://www.w3schools.com/cssref/pr_border.asp</url>
-</link>
-<link>
-<title>JavaScript Date Object</title>
-<url>https://www.w3schools.com/jsref/jsref_obj_date.asp</url>
-</link>
-<link>
-<title>JavaScript Array Object</title>
+<title>Introduction to Software Engineering - Lecture 2</title>
+<meta>foobar eggs spam</meta>
 <url>
-https://www.w3schools.com/jsref/jsref_obj_array.asp
+https://grid.cs.gsu.edu/~ncasturi1/SWEFall2017/Software%20Engineering%20Class%202.pdf
 </url>
-</link>
+</link>    
+
+    
 </pages>

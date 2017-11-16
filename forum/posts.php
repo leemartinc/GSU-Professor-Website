@@ -155,7 +155,7 @@ function toggleEdit<?php echo $row['post_id'] ?>() {
     <!----  hidden forum edit text field  ---->
                 <div style="display: none;" id="myDIV<?php echo $row['post_id'] ?>">
                     <form method="post" action="/forum/editPost.php?id=<?php echo $row['post_id'] ?>&prev=<?php echo $id ?>">
-                    <textarea name="edit-content" style="max-height: 100px;"><?php echo $row['post_content'] ?></textarea>
+                    <textareaforum name="edit-content" style="max-height: 100px;"><?php echo $row['post_content'] ?></textareaforum>
                     <input class="button3" type="submit" value="Update Post" />
                     </form>  
                    

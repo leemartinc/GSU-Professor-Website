@@ -1,7 +1,6 @@
 <?php
 include 'connect.php';
 include 'header.php';
-
 ?>
 
 
@@ -27,11 +26,6 @@ include 'header.php';
 
 </div>
 
-
-
-
-
-
         <script>
 function toggleEdit() {
     var x = document.getElementById("myDIV");
@@ -43,33 +37,34 @@ function toggleEdit() {
 }
 </script>
 
-
-
 <div class="news">
-    
             <h2 style="color:black;">News & Announcement</h2>
     <div>
             <div>
                 <?php  
-
-                $result = $conn->query("SELECT * FROM news"); 
+                $result = $conn->query("SELECT * FROM news ORDER BY news_id DESC;"); 
                 //$result (= mysqli_query($conn, $sql);
-
                 if(!$result)
                 {
                     echo 'The NEWS could not be displayed, please try again later.' . mysqli_error($conn);
                 }
                 else
                 {
-
                     while($row = mysqli_fetch_assoc($result))
                         {
-                            echo '<br><h2 style="color:black; text-align:left;">' . $row['news_title'] . '</h2><br>';
+                        
+                         echo '<p></p>';
+                        echo '<hr>';
+                        echo '<p></p>';
+                            echo '<br><h2 style="color:black; text-align:left;">' . $row['news_title'] . ' - ' . $row['news_date'] . '</h2><br>';
                             echo $row['news_content'];
                             //echo $row['news_id'];    
+                          //if($_SESSION['user_level']==1){
                         
                         ?> 
-                <form method="post" action="">
+                
+<!-------------------------------------------------------- DELETE NEWS ----------------------------------------------------------->   
+                <form method="post" action="" id="deleteForm" onsubmit="return confirm('Are you sure you want to delete this announcement?');">
                 <input class="button3" type="submit" style="display: inline-block;" name="delete<?php echo $row['news_id'] ?>" value="Delete this news" />
                 </form>
                 <?php
@@ -87,28 +82,64 @@ function toggleEdit() {
                                     else
                                     {
                                          echo "<meta http-equiv='refresh' content='0'>";
-                                    } 
-                                
+                                    }
                             }
-                        echo '<p></p>';
-                        echo '<p></p>';
-                        echo '<hr>';
-                        
-                        }
+                        ?>
+<!-------------------------------------------------------- EDIT NEWS ----------------------------------------------------------->                
+<script>
+function toggleEdit<?php echo $row['news_id'] ?>() {
+    var x = document.getElementById("myDIV<?php echo $row['news_id'] ?>");
+    if (x.style.display === "none") {
+        x.style.display = "block";
+    } else {
+        x.style.display = "none";
+    }
+}
+</script>
 
+<button class="button3" style="display: inline-block;" onclick="toggleEdit<?php echo $row['news_id'] ?>()">edit</button>
+ 
+    
+    <!----  hidden forum edit text field  ---->
+                <div style="display: none;" id="myDIV<?php echo $row['news_id'] ?>">
+                    <form method="post" action="">
+                    <textarea name="edit-content" style="max-height: 100px;"><?php echo $row['news_content'] ?></textarea>
+                    <input class="button3" type="submit" name="edit<?php echo $row['news_id'] ?>" value="Update announcement" />
+                    </form>  
+                   
+                </div>
+                <?php
+                            $editname = 'edit' . $row['news_id'];
+                            if(isset($_POST[$editname])){
+                                $prep = "UPDATE news SET news_content = '" . $_POST['edit-content'] . "' WHERE news_id = '" . $row['news_id'] . "';";
+                                $command = mysqli_query($conn, $prep);
+                                
+                                if(!$command)
+                                    {
+                                        echo 'Your news has not been updated, please try again later.'. mysqli_error($conn);
+                                    }
+                                    else
+                                    {
+                                         echo "<meta http-equiv='refresh' content='0'>";
+                                    }
+                            }
+                        ?>
+<!-----------------------------------------------------------------------------------------------------------------------------> 
+                
+                <?php
+                        }
                 }
                 
-               // if($_SESSION['user_level']==1){
-
+              
                 ?> 
-            
+
     
-    
-            
-            <div style="text-align:center;">
-            <button class="button3" style="float: right; display: block;" onclick="toggleEdit()">Add new Event</button>
-            
-            <div class="news_input" style="display: none;" id="myDIV">
+<!-------------------------------------------------------- ADD NEWS ----------------------------------------------------------->    
+            <hr>
+            <div style="text-align:right;">
+            <button class="button3" style="display: inline-block;" onclick="toggleEdit()">Add new Event</button>
+            </div>
+            <div style="display: none; text-align:center;" id="myDIV">
                 <!-- create event -->
                     <form method="post" action="">
                     Title:<br><input class="text-input" type="text" name="news-title" style="max-height: 30px; width: 100%;"><br>
@@ -118,7 +149,7 @@ function toggleEdit() {
                     </form>  
                    
                 </div>
-        </div>
+        
     </div>
         </div>
     
@@ -130,7 +161,7 @@ function toggleEdit() {
         
         if(isset($_POST['submit'])){
             
-            $sql = "INSERT INTO news (news_title, news_content, news_date) VALUES ('" . $_POST['news-title'] . "', '" . $_POST['news-content'] . "', CURRENT_TIMESTAMP);";
+            $sql = "INSERT INTO news (news_title, news_content, news_date) VALUES ('" . $_POST['news-title'] . "', '" . $_POST['news-content'] . "', date_format(curdate(), '%W, %M %d, %Y'));";
             
             $result = mysqli_query($conn, $sql);
                          
@@ -158,7 +189,5 @@ function toggleEdit() {
 
 
 <?php
-
 include 'footer.php';
-
     ?>
