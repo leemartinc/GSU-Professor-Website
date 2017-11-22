@@ -10,6 +10,8 @@ session_start();
         <title>Class Website</title>
         <link rel="icon" href="favicon.png" type="/image/png">
         <link rel="shortcut icon" href="favicon.ico" type="/img/x-icon">
+        <script type="text/javascript" src="/js/jquery.min.js"></script>
+    
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, maximum-scale=1">
         <link rel="stylesheet" type="text/css" href="/css/mainwebsite.css">
@@ -85,7 +87,7 @@ function showResult(str) {
                 </div>
             
             <a class="menutext" href="/forum/forum.php">Discussion Board</a>
-            <a class="menutext" href="#Classes">Calender</a>
+            <a class="menutext" href="/calendar/calendar.php">Calender</a>
             <a class="menutext" href="#Classes">Dropbox</a>
         </div>
     

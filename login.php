@@ -115,13 +115,15 @@ else
      }
     else{
         //ERROR MESSAGE TO BROWSER ABOUT CONNECTION
-        echo "<script type='text/javascript'>alert('was not able to connect to GSU snowball server');</script>";
+        echo "<script type='text/javascript'>alert('was not able to connect to GSU snowball server. Please try again later');</script>";
+        header( 'Location: index.html' );
     }
 }
  
 else{
     //ERROR MESSAGE TO BROWSER ABOUT CREDENTIALS
-    echo "<script type='text/javascript'>alert('wrong credentials');</script>";}
+    echo "<script type='text/javascript'>alert('Incorrect username or password ');</script>";  }
+    
 }
 
 ?>

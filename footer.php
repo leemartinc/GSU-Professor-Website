@@ -50,22 +50,27 @@ function toggleChatOptions() {
 </div>
       
     
-    <div class="chat-window-header">FOOBAR</div>
+    <div class="chat-window-header">Live Chat</div>
     <div class="chat-window-history-holder">
         <div class="chat-window-history">
             <div class="chat-window-reply-holder">
+                <!---loop for auto refrest every 5 seconds--->
+                <!---while row sql type thing--->
+                 <!---if session != chat user--->
                 <div class="chat-window-other-user">
                 Eggs
                 </div>
                 <div class="chat-window-other-reply">
                 swaginess is the key to all swag
                 </div>
+                <!---if session == chat user--->
                 <div class="chat-window-user-name">
                 me
                 </div>
                 <div class="chat-window-user-reply">
                 You are wrong sir!
                 </div>
+                
             </div>
         </div>
     </div>
