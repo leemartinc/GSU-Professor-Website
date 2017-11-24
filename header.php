@@ -65,7 +65,7 @@ function showResult(str) {
             <?php
             if($_SESSION['signed_in'])
     {
-        echo '<div class="rightsearch"> Hello ' . $_SESSION['user_name'] . '. Not you? <a href="/logout.php">Sign out</a></div>';
+        echo '<div class="rightsearch" style="color:white;"> Hello ' . $_SESSION['user_name'] . '. Not you? <a href="/logout.php">Sign out</a></div>';
     }
     else
     {
@@ -92,7 +92,7 @@ function showResult(str) {
             <a class="menutext" href="#Classes">Dropbox</a>
         </div>
     
-    <body>
+    <body class="cont">
 
         
             <div class="container">
