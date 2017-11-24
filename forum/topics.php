@@ -5,6 +5,8 @@ include $_SERVER['DOCUMENT_ROOT'] . '/header.php';
  
 //first select the category based on $_GET['cat_id']
 
+echo '<a href="/forum/create_topic.php">Create Topic</a>';
+
 $id = mysqli_real_escape_string($conn, $_GET['id']);
 
 $result = $conn->query("SELECT cat_id, cat_name, cat_description FROM categories WHERE cat_id = '$id' "); 

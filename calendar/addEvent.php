@@ -7,12 +7,12 @@ if($_SERVER['REQUEST_METHOD'] != 'POST') {
     
     ?>
 
-    <form method='post' action=''>
-        Category name: <input type='text' name='event_title' />
-        Category description: <textarea name='event_description' />
-        <input type='submit' value='Add category' />
+    <form method="post" action=''>
+        Event Info: <input type="text" name="event_title" /><br>
+        Event Date: <input type="date" name="event_date" /><br>
+        <input type="submit" value="Add Event">
      </form>
-    
+
     <?php
     
     
@@ -22,27 +22,42 @@ if($_SERVER['REQUEST_METHOD'] != 'POST') {
 $usererror='0';
 
 
-if(empty($_POST['cat_name']) || 
-   empty($_POST['cat_description'])){
+if(empty($_POST['event_title']) || 
+   empty($_POST['event_date'])){
     $usererror='1';
 }
 
-    $name=$_POST['cat_name']; 
-    $description=$_POST['cat_description']; 
+    $name=$_POST['event_title']; 
+    $date=$_POST['event_date']; 
     
     
 if($usererror == '0'){
      
     //add to DB
-             $sql = "INSERT INTO `categories` (`cat_name`, `cat_description`) VALUES ('$name', '$description');";
+             $sql = "INSERT INTO `events` (`title`, `date`, `created`, `modified`, `status`) VALUES
+('" . $name . "', '" . $date . "', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, 1);";
              
     if(mysqli_query($conn, $sql)){
     
-        echo 'New category successfully added.';
-        header ( 'Location: /forum/forum.php' );
+        echo 'New event successfully added.';
+      
+// the message
+$msg = "New event added by professor\n\nEvent: " . $name . " ";
+
+// use wordwrap() if lines are longer than 70 characters
+$msg = wordwrap($msg,70);
+        
+$headers = 'From: webmaster@example.com' . "\r\n" .
+    'Reply-To: webmaster@example.com' . "\r\n" .
+    'X-Mailer: PHP/' . phpversion();        
+
+// send email
+mail("mobeel5356@gmail.com","My subject",$msg,$headers);
+
+        header ( 'Location: /calendar/calendar.php' );
     
     } else{ 
-    
+    echo 'An error occured while inserting your data. Please try again later. error1' . mysqli_error($conn);
     }                        
      
 }
@@ -50,7 +65,7 @@ if($usererror == '0'){
  
 else{
     //ERROR MESSAGE TO BROWSER ABOUT CREDENTIALS -- USER ERROR
-    echo "<script type='text/javascript'>alert('wrong credentials');</script>";}
+    echo "<script type='text/javascript'>alert('Only an instructor or admin can add a category');</script>";}
 }
 
 

@@ -7,9 +7,8 @@ include $_SERVER['DOCUMENT_ROOT'] . '/header.php';
 
 
 echo '<a href="/forum/create_cat.php">Create Category</a></br>';
-echo '<a href="/forum/create_topic.php">Create Topic</a>';
  
-$sql = "SELECT cat_id, cat_name, cat_description FROM categories";
+$sql = "SELECT cat_id, cat_name, cat_description FROM categories ORDER BY cat_id DESC";
  
 $result = mysqli_query($conn, $sql);
  
@@ -27,7 +26,6 @@ if($result)
         echo '<table class="table-fill">
               <tr>
                 <th>Category</th>
-                <th>Last topic</th>
               </tr>'; 
              
         while($row = mysqli_fetch_assoc($result))
@@ -35,9 +33,6 @@ if($result)
             echo '<tr>';
                 echo '<td class="leftpart">';
                     echo '<h3><a href="/forum/topics.php?id= '. $row['cat_id'] .' ">' . $row['cat_name'] . '</a></h3>' . $row['cat_description'];
-                echo '</td>';
-                echo '<td class="rightpart">';
-                            echo '<a href="/forum/posts.php?id=  ' . $row['topic_id'] . ' ">Topic subject</a> at 10-10';
                 echo '</td>';
             echo '</tr>';
         }

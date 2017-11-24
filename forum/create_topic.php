@@ -44,7 +44,7 @@ else
             {
          
                 echo '<form method="post" action="">
-                    Subject: <input type="text" name="topic_subject" />
+                    Subject: <input type="text" name="topic_subject" /><br>
                     Category:'; 
                  
                 echo '<select name="topic_cat">';
@@ -52,9 +52,9 @@ else
                     {
                         echo '<option value="' . $row['cat_id'] . '">' . $row['cat_name'] . '</option>';
                     }
-                echo '</select>'; 
+                echo '</select><br>'; 
                      
-                echo 'Message: <textarea name="post_content" /></textarea>
+                echo 'Message: <textarea name="post_content" /></textarea><br>
                     <input type="submit" value="Create topic" />
                  </form>';
             }

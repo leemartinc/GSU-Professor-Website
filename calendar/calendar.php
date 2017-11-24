@@ -11,9 +11,9 @@ include_once('functions.php'); ?>
 </head>
 <body>
     
-<button class="button3" style="float: right; display: inline-block;" >Add Event</button>
+<a class="button3" style="float: right; display: inline-block;" href="/calendar/addEvent.php">Add Event</a>
     <div id="livesearch" style="position: absolute; z-index: 999; width: auto; background-color:black;"></div>
-<button class="button3" style="float: right; display: inline-block;" >Delete Event</button>
+<button class="button3" style="float: right; display: inline-block;" href="/forum/create_cat.php">Delete Event</button>
     
 <div id="calendar_div">
 	<?php echo getCalender(); ?>
