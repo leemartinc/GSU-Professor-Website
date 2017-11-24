@@ -53,31 +53,19 @@ function toggleChatOptions() {
     <div class="chat-window-header">Live Chat</div>
     <div class="chat-window-history-holder">
         <div class="chat-window-history">
-            <div class="chat-window-reply-holder">
+            <div class="chat-window-reply-holder" id="chatOutput">
                 <!---loop for auto refrest every 5 seconds--->
                 <!---while row sql type thing--->
                  <!---if session != chat user--->
-                <div class="chat-window-other-user">
-                Eggs
-                </div>
-                <div class="chat-window-other-reply">
-                swaginess is the key to all swag
-                </div>
-                <!---if session == chat user--->
-                <div class="chat-window-user-name">
-                me
-                </div>
-                <div class="chat-window-user-reply">
-                You are wrong sir!
-                </div>
+                
                 
             </div>
         </div>
     </div>
     <div class="chat-window-footer">
-        <textarea class="chat-window-text-area" id="reply_text" onfocus="if(this.value==this.defaultValue)this.value='';" onblur="if(this.value=='')this.value=this.defaultValue;" onkeypress="enter(event)">Please enter a message...
+        <textarea class="chat-window-text-area" id="chatInput" onfocus="if(this.value==this.defaultValue)this.value='';" onblur="if(this.value=='')this.value=this.defaultValue;" onkeypress="enter(event)">Please enter a message...
         </textarea>
-        <button class="chat-window-send" id="submit-reply" onclick="reply()"></button>
+        <button class="chat-window-send" id="chatSend" onclick="reply()"></button>
     </div>
 </div>
 
@@ -86,6 +74,43 @@ function toggleChatOptions() {
 </div>
 
 <img class="chat-icon" src="/images/chat.jpg" width="80px" height="80px" id="livechat_icon" onclick="toggleChatWindow();">
+
+<script>
+$(document).ready(function () {
+    var chatInterval = 250; //refresh interval in ms
+    var $userName = $("<?php $_SESSION['user_name'] ?>");
+    var $chatOutput = $("#chatOutput");
+    var $chatInput = $("#chatInput");
+    var $chatSend = $("#chatSend");
+
+    function sendMessage() {
+        var userNameString = $userName.val();
+        var chatInputString = $chatInput.val();
+
+        $.get("./live_chat/write.php", {
+            username: userNameString,
+            text: chatInputString
+        });
+
+        $userName.val("");
+        retrieveMessages();
+    }
+
+    function retrieveMessages() {
+        $.get("./live_chat/read.php", function (data) {
+            $chatOutput.html(data); //Paste content into chat output
+        });
+    }
+
+    $chatSend.click(function () {
+        sendMessage();
+    });
+
+    setInterval(function () {
+        retrieveMessages();
+    }, chatInterval);
+});
+</script>
 
 <!-------------------------------------------------------------------------------------------------------------------->
 
