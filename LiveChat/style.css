@@ -1,0 +1,150 @@
+#liveChatButton{
+	    position: absolute;
+        bottom: 40px;
+        right: 70px;
+        width: 150px;
+    	height: 40px;
+    	border: 3px solid #8AC007;
+    	color : white;
+
+}
+#liveChatButton:hover{
+	background: #8AC007;
+}
+#liveChatButton:active{
+	background: yellow;
+}
+#liveChat{
+	    position: absolute;
+        bottom: 40px;
+        right: 70px;
+        width: 200px;
+    	height: 255px;
+    	border: 2px solid #8AC007;
+    	color : white;
+    	display: none;
+
+}
+#chatHeader{
+	background: #8AC007;
+	color : white;
+	float: left;
+	height: 10%;
+	width: 90%;
+	margin:0;
+
+}
+
+#minimize{
+	background: #8AC007;
+	float:left;
+	width:10%;
+	color: #818182;
+	border:none;
+	height:10%;
+	line-height: 1px;
+
+}
+#minimize:hover{
+	color: #c8f442;
+}
+#minimize:active{
+	color: #c8f442;
+}
+#minimize:focus{
+	outline:none;
+}
+
+.divLine{
+	margin:0;
+	margin-bottom: 2;
+}
+#chatWindow{
+
+
+height: 75%;
+width: 194px;
+border-left: none;
+border-right:none;
+border-top:none;
+margin-bottom: 3.56px;
+color:black;
+overflow-x:hidden;
+overflow-y: auto;
+
+}
+#chatInput:focus{
+	outline:none;
+}
+#chatInput{
+
+margin-left: 1px;	
+width:78%;
+border: .5px solid #ddd;
+border-radius: 5px;
+height: 12%;
+float: left;
+}
+#sendButton{
+
+	display: inline-block;
+	width:19%;
+	text-align:center;
+	padding-left: 2px;
+	margin-left: 3px;
+
+
+}
+
+/*Time*/
+.time{
+	font-size: 20%;
+	font-style: italic;
+	margin-bottom: 2px;
+	margin-right: 0;
+	color: grey;
+}
+
+#studentTime{
+	float:right;
+}
+
+
+/*dialog box Student*/
+.studentMessage{
+	margin:0;
+	word-wrap: break-word;
+}
+
+
+.container1 {
+    border: 1px solid #dedede;
+    border-radius: 5px;
+    margin-bottom: 1px;
+    padding-top: 1px;
+    padding-right: 2;
+    padding-left: 0;
+    padding-bottom: 12px;
+}
+
+/* Style images */
+.container1 img {
+    float: left;
+    max-width: 30px;
+    width: 100%;
+    border-radius: 50%;
+}
+
+.student-time {
+    float: right;
+    color: #aaa;
+}
+#status{
+	font-size: 20%;
+	font-style: italic;
+	margin-bottom: 0;
+	margin-left: 136;
+	margin-top: 0;
+	
+}
+
