@@ -126,7 +126,6 @@ h9{
           transform: scale(1.1);
 }
 .login__check {
-  background-image: url("/images/gsu-logo.png");
     background-size: cover;
     background-repeat: no-repeat;
     background-position: 50% 50%;
@@ -137,7 +136,6 @@ h9{
   height: 22.8rem;
 }
 .login__check:before {
-background-image: url("/images/gsu-logo.png");
   position: absolute;
   left: 0;
   bottom: 100%;

@@ -83,6 +83,8 @@ else
                         $_SESSION['user_id']    = $row['userid'];
                         $_SESSION['user_name']  = $row['name'];
                         $_SESSION['user_level'] = $row['user_level'];
+                        $_SESSION['user_number']  = $row['number'];
+                        $_SESSION['user_carrier'] = $row['carrier'];
                     }
     
     

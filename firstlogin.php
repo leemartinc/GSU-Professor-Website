@@ -18,6 +18,8 @@ if(empty($_POST['campusid']) ||
     $name=$_POST['name'];
     $email=$_POST['email'];
     $class=$_POST['class'];
+    $number=$_POST['number'];
+    $carrier=$_POST['carrier'];
     
     $filepath = "/home/ubuntu/gsu/" . $class . "/" . $campus_id;
     $filepathclass = "/home/ubuntu/gsu/" . $class;
@@ -68,7 +70,7 @@ if($usererror == '0'){
 
              
     //add to DB
-             $sql = "INSERT INTO `allusers` (`user_level`, `campusid` , `name` , `email`, `period` , `filelocation` , `chat` , `insession` , `datevetted`) VALUES ('0', '$campus_id', '$name', '$email', '$class', '$filepath','NULL', '0' , CURRENT_TIMESTAMP);";
+             $sql = "INSERT INTO `allusers` (`user_level`, `campusid` , `name` , `email`, `period` , `filelocation` , `chat` , `insession` , `datevetted`, `number`, `carrier`) VALUES ('0', '$campus_id', '$name', '$email', '$class', '$filepath','NULL', '0' , CURRENT_TIMESTAMP, '$number', '$carrier');";
              
 if(mysqli_query($conn, $sql)){
     
@@ -91,6 +93,8 @@ if(mysqli_query($conn, $sql)){
                         $_SESSION['user_id']    = $row['userid'];
                         $_SESSION['user_name']  = $row['name'];
                         $_SESSION['user_level'] = $row['user_level'];
+                        $_SESSION['user_number']  = $row['number'];
+                        $_SESSION['user_carrier'] = $row['carrier'];
                     }
     
     header('Location: home.php');
