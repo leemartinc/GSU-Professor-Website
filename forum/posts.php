@@ -147,7 +147,7 @@ function toggleEdit<?php echo $row['post_id'] ?>() {
  
     
     
-<button class="button3" style="float: right; display: inline-block;" onclick="toggleEdit<?php echo $row['post_id'] ?>()">edit</button>
+<button class="button3" style="float: right; <?php if($row['post_by'] == $_SESSION['user_id']){ ?> display: inline-block; <?php }else{ ?>display: none;<?php } ?>" onclick="toggleEdit<?php echo $row['post_id'] ?>()">edit</button>
     
     
    
@@ -155,7 +155,7 @@ function toggleEdit<?php echo $row['post_id'] ?>() {
     <!----  hidden forum edit text field  ---->
                 <div style="display: none;" id="myDIV<?php echo $row['post_id'] ?>">
                     <form method="post" action="/forum/editPost.php?id=<?php echo $row['post_id'] ?>&prev=<?php echo $id ?>">
-                    <textareaforum name="edit-content" style="max-height: 100px;"><?php echo $row['post_content'] ?></textareaforum>
+                    <textarea class="textareaforum" name="edit-content" style="max-height: 100px;"><?php echo $row['post_content'] ?></textarea>
                     <input class="button3" type="submit" value="Update Post" />
                     </form>  
                    
@@ -179,7 +179,7 @@ function toggleEdit<?php echo $row['post_id'] ?>() {
                 <?php
                 echo '
                     <form method="post" action="/forum/reply.php?id= '. $id .'">
-                    <textarea name="reply-content"></textarea>
+                    <textarea class="textareaforum" name="reply-content"></textarea>
                     <input class="button" type="submit" value="Submit Reply" />
                     </form>
                     ';

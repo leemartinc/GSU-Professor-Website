@@ -89,7 +89,7 @@ function showResult(str) {
             
             <a class="menutext" href="/forum/forum.php">Discussion Board</a>
             <a class="menutext" href="/calendar/calendar.php">Calender</a>
-            <a class="menutext" href="#Classes">Dropbox</a>
+            <a class="menutext" href="/file-drop/main-drop.php">Dropbox</a>
         </div>
     
     <body class="cont">

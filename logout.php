@@ -9,8 +9,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml"><body>
 <div class="wrapper">
 <div class="lockscreen-wrapper" style="text-align: center;">
-<div class="lockscreen-logo" style="margin-bottom: 0px !important;margin-top: 60%;">
-<img src="https://idp.gsu.edu/oxauth/img/login-form-image.jpg" alt="Georgia State University" class="img-responsive center-block" />
+<div class="lockscreen-logo">
+<img src="https://idp.gsu.edu/oxauth/img/login-form-image.jpg" alt="Georgia State University" class="img-responsive center-block" /><br>
 <b style="font-size: 1.7em !important;">Logged Out</b>
 </div>
 <!-- User name -->

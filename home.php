@@ -103,7 +103,7 @@ function toggleEdit<?php echo $row['news_id'] ?>() {
     <!----  hidden forum edit text field  ---->
                 <div style="display: none;" id="myDIV<?php echo $row['news_id'] ?>">
                     <form method="post" action="">
-                    <textarea name="edit-content" style="max-height: 100px;"><?php echo $row['news_content'] ?></textarea>
+                    <textarea class="textareaforum" name="edit-content" style="max-height: 100px;"><?php echo $row['news_content'] ?></textarea>
                     <input class="button3" type="submit" name="edit<?php echo $row['news_id'] ?>" value="Update announcement" />
                     </form>  
                    

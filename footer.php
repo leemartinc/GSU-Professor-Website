@@ -37,6 +37,17 @@ function toggleChatOptions() {
 }
 </script> 
 
+<script>
+$(document).ready(function() {
+    $("input[name$='select_divChat']").click(function() {
+        var test = $(this).val();
+
+        $("div.desc").hide();
+        $("#choice" + test).show();
+    });
+});
+</script>
+
 
 <div class="chat-window" style="display: none;" id="chatWindow"> 
     
@@ -48,7 +59,13 @@ function toggleChatOptions() {
 <div class="bar2"></div>
 <div class="bar3"></div>
 </div>
-      
+
+    <?php
+    
+    $sqlchats = "SELECT * FROM allusers ORDER BY name";
+         
+        $resultchats = mysqli_query($conn, $sqlchats);
+    ?>
     
     <div class="chat-window-header">Live Chat</div>
     <div class="chat-window-history-holder">
@@ -58,6 +75,25 @@ function toggleChatOptions() {
                 <!---while row sql type thing--->
                  <!---if session != chat user--->
                 
+                <?php
+                if(!$resultchats)
+        {
+            echo 'The chats could not be displayed, please try again later.' . mysqli_error($conn);
+        }
+        else
+        {
+                             
+            while($row = mysqli_fetch_assoc($resultchats))
+            {               
+                
+                echo '<div id="choice' . $row['userid'] . '" class="desc" style="display: none;">
+                       you are in the div of user id ' . $row['userid'] . '
+                </div>';
+                
+            }
+                
+        }
+              ?>  
                 
             </div>
         </div>
@@ -71,46 +107,64 @@ function toggleChatOptions() {
 
 <div class="chat-options" id="chatOptions" style="display: none;">
 <div class="chat-options-header">Select a user</div>
+    <?php
+       $sql = "SELECT * FROM allusers ORDER BY name";
+         
+        $result = mysqli_query($conn, $sql);
+         
+        if(!$result)
+        {
+            echo 'The users could not be displayed, please try again later.' . mysqli_error($conn);
+        }
+        else
+        {
+                             if(mysqli_num_rows($result) == 0)
+                    {
+                        echo 'No users available yet.';
+                    }
+                    else
+                    {
+                        //prepare the table
+                        echo '<table class="table-fill" Style="margin-top: 50px;">
+                              <tr>
+                                    
+                              </tr>'; 
+                        
+                        echo "<form id='select__user'>";
+                        while($row = mysqli_fetch_assoc($result))
+                        {               
+                            echo '<tr>';
+                                echo '<td class="leftpart">';
+                                    echo $row['name'];
+                                    //select button
+                                    ?>
+                                        <input name="select_divChat" id="choice<?php echo $row['userid']; ?>" value="<?php echo $row['userid']; ?>" type="radio" style="float: right;" />
+                                    <?php
+                                echo '</td>';
+                            echo '</tr>';
+                        }
+                        echo '</table>';
+                        echo "</form>";
+
+                    }
+        }
+    
+    ?>
+    
+    
+    
 </div>
 
 <img class="chat-icon" src="/images/chat.jpg" width="80px" height="80px" id="livechat_icon" onclick="toggleChatWindow();">
 
-<script>
-$(document).ready(function () {
-    var chatInterval = 250; //refresh interval in ms
-    var $userName = $("<?php $_SESSION['user_name'] ?>");
-    var $chatOutput = $("#chatOutput");
-    var $chatInput = $("#chatInput");
-    var $chatSend = $("#chatSend");
-
-    function sendMessage() {
-        var userNameString = $userName.val();
-        var chatInputString = $chatInput.val();
-
-        $.get("./live_chat/write.php", {
-            username: userNameString,
-            text: chatInputString
-        });
-
-        $userName.val("");
-        retrieveMessages();
-    }
-
-    function retrieveMessages() {
-        $.get("./live_chat/read.php", function (data) {
-            $chatOutput.html(data); //Paste content into chat output
-        });
-    }
-
-    $chatSend.click(function () {
-        sendMessage();
-    });
-
-    setInterval(function () {
-        retrieveMessages();
-    }, chatInterval);
-});
-</script>
+<!--jQuery-->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> 
+<!--popper.js-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
+<!--myJavaScript.js-->
+<script src="/LiveChat/js2.js" type="text/javascript" charset="utf-8" async defer></script>
+<!--twitterBootstrap-->
+<script src="/LiveChat/bootstrap/js/bootstrap.min.js"></script>
 
 <!-------------------------------------------------------------------------------------------------------------------->
 
