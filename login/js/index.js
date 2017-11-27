@@ -19,6 +19,8 @@ $(document).ready(function() {
   };
   
   $(document).on("click", ".login__submit", function(e) {
+      $('#gif').show(); 
+       $('#gif').css('visibility', 'visible');
     if (animating) return;
     animating = true;
     var that = this;
@@ -32,7 +34,6 @@ $(document).ready(function() {
         $app.addClass("active");
       }, submitPhase2 - 70);
       setTimeout(function() {
-        $login.hide();
         $login.addClass("inactive");
         animating = false;
         $(that).removeClass("success processing");
@@ -53,7 +54,6 @@ $(document).ready(function() {
       $login.removeClass("inactive");
     }, logoutPhase1 - 120);
     setTimeout(function() {
-      $app.hide();
       animating = false;
       $(that).removeClass("clicked");
     }, logoutPhase1);

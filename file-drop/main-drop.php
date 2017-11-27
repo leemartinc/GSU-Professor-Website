@@ -25,10 +25,10 @@ include $_SERVER['DOCUMENT_ROOT'] . '/header.php';
   <p>File Info: </p>
   <div id="filedata"></div>
     
-  <form action="/file-drop/upload.php" method="post" enctype="multipart/form-data">
-    Select file to upload:
-    <input type="file" name="fileToUpload" id="fileToUpload">
-    <input type="submit" value="Upload File" name="upload">
+  <form action="/upload.php" method="post" enctype="multipart/form-data">
+    <p>Upload your file</p>
+    <input type="file" name="uploaded_file"><br />
+    <input type="submit" value="Upload">
       
 </form>
 

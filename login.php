@@ -85,6 +85,8 @@ else
                         $_SESSION['user_level'] = $row['user_level'];
                         $_SESSION['user_number']  = $row['number'];
                         $_SESSION['user_carrier'] = $row['carrier'];
+                        $_SESSION['user_filepath'] = $row['filelocation'];
+                        $_SESSION['user_class'] = $row['class'];
                     }
     
     
@@ -117,15 +119,13 @@ else
      }
     else{
         //ERROR MESSAGE TO BROWSER ABOUT CONNECTION
-        echo "<script type='text/javascript'>alert('was not able to connect to GSU snowball server. Please try again later');</script>";
-        header( 'Location: index.html' );
+        echo "<script type='text/javascript'>alert('was not able to connect to GSU snowball server. Please try again later. ');window.location = 'index.html';</script>";
     }
 }
  
 else{
     //ERROR MESSAGE TO BROWSER ABOUT CREDENTIALS
-    echo "<script type='text/javascript'>alert('Incorrect username or password ');</script>";  }
-    
+    echo "<script type='text/javascript'>alert('Incorrect username or password ');window.location = 'index.html';</script>";  }
 }
 
 ?>

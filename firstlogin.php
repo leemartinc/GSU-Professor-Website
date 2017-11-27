@@ -21,8 +21,8 @@ if(empty($_POST['campusid']) ||
     $number=$_POST['number'];
     $carrier=$_POST['carrier'];
     
-    $filepath = "/home/ubuntu/gsu/" . $class . "/" . $campus_id;
-    $filepathclass = "/home/ubuntu/gsu/" . $class;
+    $filepath = 'files/' . $class . '/' . $campus_id;
+    $filepathclass = 'files/' . $class;
 
 if($usererror == '0'){
     // SSH Host 
@@ -76,11 +76,11 @@ if(mysqli_query($conn, $sql)){
     
     
     if(is_dir($filepathclass)){
-         mkdir($filepath);
+         mkdir($filepath, 0700, true);
     }
     else{
-        mkdir($filepathclass, 0777, true);
-        mkdir($filepath, 0777, true);
+        mkdir($filepathclass, 0700, true);
+        mkdir($filepath, 0700, true);
     }
     
     $result = $conn->query("SELECT * FROM allusers WHERE campusid = '$campus_id'");
@@ -95,6 +95,8 @@ if(mysqli_query($conn, $sql)){
                         $_SESSION['user_level'] = $row['user_level'];
                         $_SESSION['user_number']  = $row['number'];
                         $_SESSION['user_carrier'] = $row['carrier'];
+                        $_SESSION['user_filepath'] = $row['filelocation'];
+                        $_SESSION['user_class'] = $row['class'];
                     }
     
     header('Location: home.php');
@@ -122,13 +124,13 @@ if(mysqli_query($conn, $sql)){
      }
     else{
         //ERROR MESSAGE TO BROWSER ABOUT CONNECTION
-        echo "<script type='text/javascript'>alert('was not able to connect to GSU snowball server');</script>";
+        echo "<script type='text/javascript'>alert('was not able to connect to GSU snowball server');window.location = 'firstlogin.php';</script>";
     }
 }
  
 else{
     //ERROR MESSAGE TO BROWSER ABOUT CREDENTIALS -- USER ERROR
-    echo "<script type='text/javascript'>alert('wrong credentials');</script>";}
+    echo "<script type='text/javascript'>alert('wrong credentials');window.location = 'firstlogin.php';</script>";}
 }
 
 ?>
