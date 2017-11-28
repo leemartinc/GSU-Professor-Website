@@ -4,9 +4,9 @@ include 'header.php';
 ?>
 
 
-<h1>Computer Science</h1>
+<h1 style="color:black;">Rao Casturi</h1>
         <div class="leftfrontpage">
-            <img src="https://grid.cs.gsu.edu/~ncasturi1/125.JPG" alt="Rao Face"/>
+            <img src="/images/casturi.JPG" alt="Rao Face"/>
             <h5>Research Interests:</h5>
                 <p>My area of interests are in Database systems, Design, Modeling and Distributed Database computations along with Software Engineering. I also work on research topics which analyze in efficient and cost effective Data Warehouse frameworks and Data Mining.</p>
             
@@ -17,12 +17,11 @@ include 'header.php';
 <div class="rightfrontpage">
 <h2 style="color: darkblue;">Quick Links</h2>
 <br>
-<button class="button" style="display: inline-block;" >foobar Link 1</button>    
-<button class="button" style="display: inline-block;" >foobar Link 2</button> 
-<button class="button" style="display: inline-block;" >foobar Link 3</button> 
-<button class="button" style="display: inline-block;" >foobar Link 4</button> 
-<button class="button" style="display: inline-block;" >foobar Link 5</button> 
-<button class="button" style="display: inline-block;" >foobar Link 6</button> 
+<a class="button" style="display: inline-block; width: 150px; text-align:center;" href="https://grid.cs.gsu.edu/~ncasturi1/SWEFall2017/SYLLABUS%20Fall%202017.pdf" >Class Syllabus</a><br>    
+<a class="button" style="display: inline-block; width: 150px; text-align:center;" href="http://cs.gsu.edu/">CS Department</a><br> 
+<a class="button" style="display: inline-block; width: 150px; text-align:center;" href="http://icollege.gsu.edu/">iCollege</a><br> 
+<a class="button" style="display: inline-block; width: 150px; text-align:center;" href="http://panthermail.gsu.edu/">Panther Mail</a><br> 
+
 
 </div>
 
@@ -65,7 +64,7 @@ function toggleEdit() {
                 
 <!-------------------------------------------------------- DELETE NEWS ----------------------------------------------------------->   
                 <form method="post" action="" id="deleteForm" onsubmit="return confirm('Are you sure you want to delete this announcement?');">
-                <input class="button3" type="submit" style="display: inline-block;" name="delete<?php echo $row['news_id'] ?>" value="Delete this news" />
+                <input class="button3" type="submit" style="<?php if($_SESSION['user_level'] == 1){ ?> display: inline-block; <?php }else{ ?>display: none;<?php } ?>" name="delete<?php echo $row['news_id'] ?>" value="Delete this news" />
                 </form>
                 <?php
                             $deletename = 'delete' . $row['news_id'];
@@ -97,7 +96,7 @@ function toggleEdit<?php echo $row['news_id'] ?>() {
 }
 </script>
 
-<button class="button3" style="display: inline-block;" onclick="toggleEdit<?php echo $row['news_id'] ?>()">edit</button>
+<button class="button3" style="<?php if($_SESSION['user_level'] == 1){ ?> display: inline-block; <?php }else{ ?>display: none;<?php } ?>" onclick="toggleEdit<?php echo $row['news_id'] ?>()">edit</button>
  
     
     <!----  hidden forum edit text field  ---->
@@ -137,7 +136,7 @@ function toggleEdit<?php echo $row['news_id'] ?>() {
 <!-------------------------------------------------------- ADD NEWS ----------------------------------------------------------->    
             <hr>
             <div style="text-align:right;">
-            <button class="button3" style="display: inline-block;" onclick="toggleEdit()">Add new Event</button>
+            <button class="button3" style="<?php if($_SESSION['user_level'] == 1){ ?> display: inline-block; <?php }else{ ?>display: none;<?php } ?>" onclick="toggleEdit()">Add new Event</button>
             </div>
             <div style="display: none; text-align:center;" id="myDIV">
                 <!-- create event -->

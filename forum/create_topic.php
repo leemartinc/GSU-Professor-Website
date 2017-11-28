@@ -2,6 +2,7 @@
 //create_cat.php
 include $_SERVER['DOCUMENT_ROOT'] . '/connect.php';
 include $_SERVER['DOCUMENT_ROOT'] . '/header.php';
+
  
 echo '<h2>Create a topic</h2>';
 if($_SESSION['signed_in'] == false)
@@ -44,17 +45,16 @@ else
             {
          
                 echo '<form method="post" action="">
-                    Subject: <input type="text" name="topic_subject" /><br>
-                    Category:'; 
+                    Subject: <input type="text" name="topic_subject" /><br>'; 
                  
-                echo '<select name="topic_cat">';
-                    while($row = mysqli_fetch_assoc($result))
-                    {
-                        echo '<option value="' . $row['cat_id'] . '">' . $row['cat_name'] . '</option>';
-                    }
-                echo '</select><br>'; 
+//                echo '<select name="topic_cat">';
+//                    while($row = mysqli_fetch_assoc($result))
+//                    {
+//                        echo '<option value="' . $row['cat_id'] . '">' . $row['cat_name'] . '</option>';
+//                    }
+//                echo '</select><br>'; 
                      
-                echo 'Message: <textarea name="post_content" /></textarea><br>
+                echo '<br>Message: <textarea class="textareaforum" name="post_content" /></textarea><br>
                     <input type="submit" value="Create topic" />
                  </form>';
             }
@@ -74,7 +74,7 @@ else
         else
         {
             $subject = $_POST['topic_subject'];
-            $cat = $_POST['topic_cat'];
+            $cat = mysqli_real_escape_string($conn, $_GET['forCat']);
             $user = $_SESSION['user_id'];
      
             //the form has been posted, so save it

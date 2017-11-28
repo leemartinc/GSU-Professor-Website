@@ -21,8 +21,8 @@ if(empty($_POST['campusid']) ||
     $number=$_POST['number'];
     $carrier=$_POST['carrier'];
     
-    $filepath = 'files/' . $class . '/' . $campus_id;
-    $filepathclass = 'files/' . $class;
+    $filepath = 'files/' . $class . '/' . $campus_id . '/';
+    $filepathclass = 'files/' . $class . '/';
 
 if($usererror == '0'){
     // SSH Host 

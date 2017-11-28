@@ -80,16 +80,16 @@ function showResult(str) {
             <a class="menutext" href="/home.php">Home</a>
             
                 <div class="dropdown">
-            <a class="menutext" href="#Classes">Classes</a>
+            <a class="menutext" href="https://grid.cs.gsu.edu/~ncasturi1/SWEFall2017/index.htm">Classes</a>
                     <div class="dropdown-content">
-                        <a href="#">Software Engineering 4350</a>
-                        <a href="#">Software Engineering 6350</a>
+                        <a href="https://grid.cs.gsu.edu/~ncasturi1/SWEFall2017/index.htm">Software Engineering 4350</a>
+                        <a href="https://grid.cs.gsu.edu/~ncasturi1/SWEFall2017/index.htm">Software Engineering 6350</a>
                     </div>
                 </div>
             
             <a class="menutext" href="/forum/forum.php">Discussion Board</a>
             <a class="menutext" href="/calendar/calendar.php">Calender</a>
-            <a class="menutext" href="/file-drop/main-drop.php">Dropbox</a>
+            <a class="menutext" href="/main-drop.php">Dropbox</a>
         </div>
     
     <body class="cont">

@@ -4,11 +4,13 @@ include $_SERVER['DOCUMENT_ROOT'] . '/connect.php';
 include $_SERVER['DOCUMENT_ROOT'] . '/header.php';
 
     
+?>
 
+<a class="button" href="/forum/create_cat.php" style="<?php if($_SESSION['user_level'] == 1){ ?> display: inline-block; <?php }else{ ?>display: none;<?php } ?>">Create Category</a>
 
-echo '<a href="/forum/create_cat.php">Create Category</a></br>';
+<?php
  
-$sql = "SELECT cat_id, cat_name, cat_description FROM categories ORDER BY cat_id DESC";
+$sql = "SELECT cat_id, cat_name, cat_description FROM categories ORDER BY cat_id ASC";
  
 $result = mysqli_query($conn, $sql);
  

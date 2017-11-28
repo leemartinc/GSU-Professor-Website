@@ -11,9 +11,9 @@ include_once('functions.php'); ?>
 </head>
 <body>
     
-<a class="button3" style="float: right; display: inline-block;" href="/calendar/addEvent.php">Add Event</a>
+<a class="button3" style="float: right; <?php if($_SESSION['user_level'] == 1){ ?> display: inline-block; <?php }else{ ?>display: none;<?php } ?>" href="/calendar/addEvent.php">Add Event</a>
     <div id="livesearch" style="position: absolute; z-index: 999; width: auto; background-color:black;"></div>
-<button class="button3" style="float: right; display: inline-block;" href="/forum/create_cat.php">Delete Event</button>
+<button class="button3" style="float: right; <?php if($_SESSION['user_level'] == 1){ ?> display: inline-block; <?php }else{ ?>display: none;<?php } ?>" href="/forum/create_cat.php">Delete Event</button>
     
 <div id="calendar_div">
 	<?php echo getCalender(); ?>
