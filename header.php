@@ -23,8 +23,18 @@ session_start();
 
     </style>
     </head>
+  <!-- enables next line for text area -->  
+    <script>
+        $('textarea').keypress(function(event) {
+   if (event.which == 13) {
+      event.preventDefault();
+      var s = $(this).val();
+      $(this).val(s+"\n");
+   }
+});
+    </script>
     
-    <div>
+    <div>    
         
 <!------------------------------------------------------SEARCH--------------------------------------------->        
         <div class="rightsearch">
@@ -64,11 +74,11 @@ function showResult(str) {
         
             <?php
             if($_SESSION['signed_in'])
-    {
+    {   //if user is signed in, display name
         echo '<div class="rightsearch" style="color:white;"> Hello ' . $_SESSION['user_name'] . '. Not you? <a href="/logout.php">Sign out</a></div>';
     }
     else
-    {
+    {   //if no usr signed in, give option to sign in or create 'account'
         echo '<div class="rightsearch"><a href="/index.html">Sign in</a> or <a href="/firstlogin.html">create an account</a>.</div>';
     }
             ?>

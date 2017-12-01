@@ -91,7 +91,7 @@ WHERE
                     
                             if($row['post_rez'] == 1){ ?>    <!---- check mark ----->  <img src="/images/check-mark.png" alt="resolution" style="width:50px;height:50px;">   <?php }
                     
-                            echo '<p>'. $row['post_content'] .'
+                            echo '<p>'. nl2br($row['post_content']) .'
                             </p>';
                     
                     if($row['post_rez'] == 1){
@@ -183,6 +183,7 @@ function toggleEdit<?php echo $row['post_id'] ?>() {
                     <input class="button" type="submit" value="Submit Reply" />
                     </form>
                     ';
+                
       
             }
             

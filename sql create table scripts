@@ -1,0 +1,14 @@
+if proff "status=online{
+
+
+
+}
+
+\
+\\
+
+
+
+ALTER TABLE shoppingcart_items ADD FOREIGN KEY(cartid) REFERENCES shoppingcart(cartid) ON DELETE CASCADE ON UPDATE CASCADE;
+
+

@@ -17,8 +17,10 @@ else
     }
     else
     {
+        $input = $_POST['reply-content'];
+$safe_input = addslashes($input);
         //a real user posted a real reply
-        $sql = "INSERT INTO posts(post_content, post_date, post_topic, post_by) VALUES ('" . $_POST['reply-content'] . "', CURRENT_TIMESTAMP, '" . mysqli_real_escape_string($conn, $_GET['id']) . "', '" . $_SESSION['user_id'] . "');";
+        $sql = "INSERT INTO posts(post_content, post_date, post_topic, post_by) VALUES ('$safe_input', CURRENT_TIMESTAMP, '" . mysqli_real_escape_string($conn, $_GET['id']) . "', '" . $_SESSION['user_id'] . "');";
                          
         $result = mysqli_query($conn, $sql);
                          
